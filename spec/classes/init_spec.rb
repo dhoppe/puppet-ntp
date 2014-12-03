@@ -5,6 +5,7 @@ describe 'ntp', :type => :class do
     let(:facts) {{
       :osfamily        => osfamily,
       :operatingsystem => 'Debian',
+      :is_virtual      => true,
     }}
 
     it { is_expected.to compile.with_all_deps }

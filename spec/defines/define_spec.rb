@@ -5,6 +5,7 @@ describe 'ntp::define', :type => :define do
     let(:facts) {{
       :osfamily        => osfamily,
       :operatingsystem => 'Debian',
+      :is_virtual      => true,
     }}
     let(:pre_condition) { 'include ntp' }
     let(:title) { 'ntp.conf' }
