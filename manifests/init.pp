@@ -29,10 +29,10 @@ class ntp (
   $service_enable           = true,
 
   $server_external          = [
-    "0.getvar('::lsbdistid').pool.ntp.org",
-    "1.getvar('::lsbdistid').pool.ntp.org",
-    "2.getvar('::lsbdistid').pool.ntp.org",
-    "3.getvar('::lsbdistid').pool.ntp.org",
+    "0.${::operatingsystem}.pool.ntp.org",
+    "1.${::operatingsystem}.pool.ntp.org",
+    "2.${::operatingsystem}.pool.ntp.org",
+    "3.${::operatingsystem}.pool.ntp.org",
   ],
   $server_internal          = undef,
 ) inherits ::ntp::params {
