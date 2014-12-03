@@ -3,7 +3,8 @@ require 'spec_helper'
 describe 'ntp::define', :type => :define do
   ['Debian'].each do |osfamily|
     let(:facts) {{
-      :osfamily => osfamily,
+      :osfamily        => osfamily,
+      :operatingsystem => 'Debian',
     }}
     let(:pre_condition) { 'include ntp' }
     let(:title) { 'ntp.conf' }

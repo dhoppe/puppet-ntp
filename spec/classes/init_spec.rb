@@ -3,7 +3,8 @@ require 'spec_helper'
 describe 'ntp', :type => :class do
   ['Debian'].each do |osfamily|
     let(:facts) {{
-      :osfamily => osfamily,
+      :osfamily        => osfamily,
+      :operatingsystem => 'Debian',
     }}
 
     it { is_expected.to compile.with_all_deps }
