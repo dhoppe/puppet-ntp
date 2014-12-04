@@ -49,6 +49,7 @@ Install ntp with the default parameters ***(No configuration files will be chang
 Install ntp with the recommended parameters.
 
 #### Standalone setup
+
 ```puppet
     class { 'ntp':
       config_file_template => "ntp/${::lsbdistid}/etc/ntp.conf.erb",
@@ -56,6 +57,7 @@ Install ntp with the recommended parameters.
 ```
 
 #### Client/Server setup (client)
+
 ```puppet
     class { 'ntp':
       config_file_template => "ntp/${::lsbdistid}/etc/ntp.conf.erb",
@@ -67,6 +69,7 @@ Install ntp with the recommended parameters.
 ```
 
 #### Client/Server setup (server)
+
 ```puppet
     class { 'ntp':
       config_file_template => "ntp/${::lsbdistid}/etc/ntp-server.conf.erb",
