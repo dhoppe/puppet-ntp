@@ -1,10 +1,10 @@
 ---
-ntp::config_file_template: "ntp/%{::lsbdistid}/etc/ntp.conf.erb"
+ntp::config_file_template: "ntp/%{::operatingsystem}/etc/ntp.conf.erb"
 ntp::server_external:
-  - "0.%{::lsbdistid}.pool.ntp.org"
-  - "1.%{::lsbdistid}.pool.ntp.org"
-  - "2.%{::lsbdistid}.pool.ntp.org"
-  - "3.%{::lsbdistid}.pool.ntp.org"
+  - "0.%{::operatingsystem}.pool.ntp.org"
+  - "1.%{::operatingsystem}.pool.ntp.org"
+  - "2.%{::operatingsystem}.pool.ntp.org"
+  - "3.%{::operatingsystem}.pool.ntp.org"
 ntp::server_internal:
   - "ntp1.%{::domain}"
   - "ntp2.%{::domain}"

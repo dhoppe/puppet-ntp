@@ -52,7 +52,7 @@ Install ntp with the recommended parameters.
 
 ```puppet
     class { 'ntp':
-      config_file_template => "ntp/${::lsbdistid}/etc/ntp.conf.erb",
+      config_file_template => "ntp/${::operatingsystem}/etc/ntp.conf.erb",
     }
 ```
 
@@ -60,7 +60,7 @@ Install ntp with the recommended parameters.
 
 ```puppet
     class { 'ntp':
-      config_file_template => "ntp/${::lsbdistid}/etc/ntp.conf.erb",
+      config_file_template => "ntp/${::operatingsystem}/etc/ntp.conf.erb",
       server_internal      => [
         "ntp1.${::domain}",
         "ntp2.${::domain}",
@@ -72,7 +72,7 @@ Install ntp with the recommended parameters.
 
 ```puppet
     class { 'ntp':
-      config_file_template => "ntp/${::lsbdistid}/etc/ntp-server.conf.erb",
+      config_file_template => "ntp/${::operatingsystem}/etc/ntp-server.conf.erb",
       server_internal      => [
         "ntp1.${::domain}",
         "ntp2.${::domain}",
@@ -110,7 +110,7 @@ Deploy the configuration files from source directory.
 
 ```puppet
     class { 'ntp':
-      config_dir_source => "puppet:///modules/ntp/${::lsbdistid}/etc",
+      config_dir_source => "puppet:///modules/ntp/${::operatingsystem}/etc",
     }
 ```
 
@@ -119,7 +119,7 @@ Deploy the configuration files from source directory ***(Unmanaged configuration
 ```puppet
     class { 'ntp':
       config_dir_purge  => true,
-      config_dir_source => "puppet:///modules/ntp/${::lsbdistid}/etc",
+      config_dir_source => "puppet:///modules/ntp/${::operatingsystem}/etc",
     }
 ```
 
@@ -127,7 +127,7 @@ Deploy the configuration file from source.
 
 ```puppet
     class { 'ntp':
-      config_file_source => "puppet:///modules/ntp/${::lsbdistid}/etc/ntp.conf",
+      config_file_source => "puppet:///modules/ntp/${::operatingsystem}/etc/ntp.conf",
     }
 ```
 
@@ -143,7 +143,7 @@ Deploy the configuration file from template.
 
 ```puppet
     class { 'ntp':
-      config_file_template => "ntp/${::lsbdistid}/etc/ntp.conf.erb",
+      config_file_template => "ntp/${::operatingsystem}/etc/ntp.conf.erb",
     }
 ```
 
@@ -151,7 +151,7 @@ Deploy the configuration file from custom template ***(Additional parameters can
 
 ```puppet
     class { 'ntp':
-      config_file_template     => "ntp/${::lsbdistid}/etc/ntp.conf.erb",
+      config_file_template     => "ntp/${::operatingsystem}/etc/ntp.conf.erb",
       config_file_options_hash => {
         'key' => 'value',
       },
@@ -165,7 +165,7 @@ Deploy additional configuration files from source, string or template.
       config_file_hash => {
         'ntp.2nd.conf' => {
           config_file_path   => '/etc/ntp.2nd.conf',
-          config_file_source => "puppet:///modules/ntp/${::lsbdistid}/etc/ntp.2nd.conf",
+          config_file_source => "puppet:///modules/ntp/${::operatingsystem}/etc/ntp.2nd.conf",
         },
         'ntp.3rd.conf' => {
           config_file_path   => '/etc/ntp.3rd.conf',
@@ -173,7 +173,7 @@ Deploy additional configuration files from source, string or template.
         },
         'ntp.4th.conf' => {
           config_file_path     => '/etc/ntp.4th.conf',
-          config_file_template => "ntp/${::lsbdistid}/etc/ntp.4th.conf.erb",
+          config_file_template => "ntp/${::operatingsystem}/etc/ntp.4th.conf.erb",
         },
       },
     }
@@ -297,7 +297,7 @@ Determines if the service should be enabled at boot. Valid values are 'true' and
 
 #### `server_external`
 
-Determines which hosts should be used as synchronization source (external). Defaults to '["0.${::lsbdistid}.pool.ntp.org", "1.${::lsbdistid}.pool.ntp.org", "2.${::lsbdistid}.pool.ntp.org", "3.${::lsbdistid}.pool.ntp.org"]'.
+Determines which hosts should be used as synchronization source (external). Defaults to '["0.${::operatingsystem}.pool.ntp.org", "1.${::operatingsystem}.pool.ntp.org", "2.${::operatingsystem}.pool.ntp.org", "3.${::operatingsystem}.pool.ntp.org"]'.
 
 #### `server_internal`
 
