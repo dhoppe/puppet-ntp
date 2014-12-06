@@ -119,7 +119,7 @@ describe 'ntp', :if => SUPPORTED_PLATFORMS.include?(fact('osfamily')) do
       it 'is_expected.to work with no errors' do
         pp = <<-EOS
           class { 'ntp':
-            config_file_template => "ntp/#{fact('lsbdistid')}/#{config_file_path}.erb",
+            config_file_template => "ntp/#{fact('operatingsystem')}/#{config_file_path}.erb",
           }
         EOS
 
