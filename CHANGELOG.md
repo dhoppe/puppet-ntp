@@ -1,3 +1,8 @@
+## 2014-12-06 Release 1.0.2
+### Summary:
+- [Puppet] Update documentation
+- [Rspec] Made some changes to the build environment
+
 ## 2014-12-03 Release 1.0.1
 ### Summary:
 - [Puppet] Add additonal variable for virtual hosts
