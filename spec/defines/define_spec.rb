@@ -13,6 +13,7 @@ describe 'ntp::define', :type => :define do
     context "on #{osfamily}" do
       context 'when source file' do
         let(:params) {{
+          :config_file_path   => '/etc/ntp.2nd.conf',
           :config_file_source => 'puppet:///modules/ntp/Debian/etc/ntp.conf',
         }}
 
@@ -28,6 +29,7 @@ describe 'ntp::define', :type => :define do
 
       context 'when content string' do
         let(:params) {{
+          :config_file_path   => '/etc/ntp.3rd.conf',
           :config_file_string => '# THIS FILE IS MANAGED BY PUPPET',
         }}
 
@@ -43,6 +45,7 @@ describe 'ntp::define', :type => :define do
 
       context 'when content template' do
         let(:params) {{
+          :config_file_path     => '/etc/ntp.4th.conf',
           :config_file_template => 'ntp/Debian/etc/ntp.conf.erb',
         }}
 
@@ -58,6 +61,7 @@ describe 'ntp::define', :type => :define do
 
       context 'when content template (custom)' do
         let(:params) {{
+          :config_file_path         => '/etc/ntp.5th.conf',
           :config_file_template     => 'ntp/Debian/etc/ntp.conf.erb',
           :config_file_options_hash => {
             'key' => 'value',
