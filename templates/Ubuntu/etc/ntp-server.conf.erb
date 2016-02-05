@@ -5,7 +5,7 @@
 
 # /etc/ntp.conf, configuration for ntpd; see ntp.conf(5) for help
 
-<% if scope.lookupvar('::is_virtual') == 'true' -%>
+<% if scope['::is_virtual'] == 'true' -%>
 # Keep ntpd from panicking in the event of a large clock skew
 # when a VM guest is suspended and resumed.
 tinker panic 0
@@ -27,13 +27,13 @@ filegen clockstats file clockstats type day enable
 # Use servers from the NTP Pool Project. Approved by Ubuntu Technical Board
 # on 2011-02-08 (LP: #104525). See http://www.pool.ntp.org/join.html for
 # more information.
-<% scope.lookupvar('::ntp::server_external').each do |value| -%>
+<% scope['::ntp::server_external'].each do |value| -%>
 server <%= value.downcase %> iburst
 <% end -%>
 
-<% if scope.lookupvar('::ntp::server_internal').length > 1 -%>
-<% scope.lookupvar('::ntp::server_internal').each do |value| -%>
-<% if scope.lookupvar('::fqdn') != value -%>
+<% if scope['::ntp::server_internal'].length > 1 -%>
+<% scope['::ntp::server_internal'].each do |value| -%>
+<% if scope['::fqdn'] != value -%>
 peer <%= value %> iburst
 <% end -%>
 <% end -%>
