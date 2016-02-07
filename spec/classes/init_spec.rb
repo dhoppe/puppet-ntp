@@ -20,9 +20,9 @@ describe 'ntp', :type => :class do
       describe 'ntp::install' do
         context 'defaults' do
           it do
-            is_expected.to contain_package('ntp').with({
+            is_expected.to contain_package('ntp').with(
               'ensure' => 'present',
-            })
+            )
           end
         end
 
@@ -32,9 +32,9 @@ describe 'ntp', :type => :class do
           }}
 
           it do
-            is_expected.to contain_package('ntp').with({
+            is_expected.to contain_package('ntp').with(
               'ensure' => 'latest',
-            })
+            )
           end
         end
 
@@ -46,22 +46,22 @@ describe 'ntp', :type => :class do
           }}
 
           it do
-            is_expected.to contain_package('ntp').with({
+            is_expected.to contain_package('ntp').with(
               'ensure' => 'absent',
-            })
+            )
           end
           it do
-            is_expected.to contain_file('ntp.conf').with({
+            is_expected.to contain_file('ntp.conf').with(
               'ensure'  => 'present',
               'notify'  => 'Service[ntp]',
               'require' => 'Package[ntp]',
-            })
+            )
           end
           it do
-            is_expected.to contain_service('ntp').with({
+            is_expected.to contain_service('ntp').with(
               'ensure' => 'stopped',
               'enable' => false,
-            })
+            )
           end
         end
 
@@ -73,22 +73,22 @@ describe 'ntp', :type => :class do
           }}
 
           it do
-            is_expected.to contain_package('ntp').with({
+            is_expected.to contain_package('ntp').with(
               'ensure' => 'purged',
-            })
+            )
           end
           it do
-            is_expected.to contain_file('ntp.conf').with({
+            is_expected.to contain_file('ntp.conf').with(
               'ensure'  => 'absent',
               'notify'  => 'Service[ntp]',
               'require' => 'Package[ntp]',
-            })
+            )
           end
           it do
-            is_expected.to contain_service('ntp').with({
+            is_expected.to contain_service('ntp').with(
               'ensure' => 'stopped',
               'enable' => false,
-            })
+            )
           end
         end
       end
@@ -96,11 +96,11 @@ describe 'ntp', :type => :class do
       describe 'ntp::config' do
         context 'defaults' do
           it do
-            is_expected.to contain_file('ntp.conf').with({
+            is_expected.to contain_file('ntp.conf').with(
               'ensure'  => 'present',
               'notify'  => 'Service[ntp]',
               'require' => 'Package[ntp]',
-            })
+            )
           end
         end
 
@@ -110,7 +110,7 @@ describe 'ntp', :type => :class do
           }}
 
           it do
-            is_expected.to contain_file('ntp.dir').with({
+            is_expected.to contain_file('ntp.dir').with(
               'ensure'  => 'directory',
               'force'   => false,
               'purge'   => false,
@@ -118,7 +118,7 @@ describe 'ntp', :type => :class do
               'source'  => 'puppet:///modules/ntp/Debian/etc',
               'notify'  => 'Service[ntp]',
               'require' => 'Package[ntp]',
-            })
+            )
           end
         end
 
@@ -129,7 +129,7 @@ describe 'ntp', :type => :class do
           }}
 
           it do
-            is_expected.to contain_file('ntp.dir').with({
+            is_expected.to contain_file('ntp.dir').with(
               'ensure'  => 'directory',
               'force'   => true,
               'purge'   => true,
@@ -137,7 +137,7 @@ describe 'ntp', :type => :class do
               'source'  => 'puppet:///modules/ntp/Debian/etc',
               'notify'  => 'Service[ntp]',
               'require' => 'Package[ntp]',
-            })
+            )
           end
         end
 
@@ -147,12 +147,12 @@ describe 'ntp', :type => :class do
           }}
 
           it do
-            is_expected.to contain_file('ntp.conf').with({
+            is_expected.to contain_file('ntp.conf').with(
               'ensure'  => 'present',
               'source'  => 'puppet:///modules/ntp/Debian/etc/ntp.conf',
               'notify'  => 'Service[ntp]',
               'require' => 'Package[ntp]',
-            })
+            )
           end
         end
 
@@ -162,12 +162,12 @@ describe 'ntp', :type => :class do
           }}
 
           it do
-            is_expected.to contain_file('ntp.conf').with({
+            is_expected.to contain_file('ntp.conf').with(
               'ensure'  => 'present',
               'content' => /THIS FILE IS MANAGED BY PUPPET/,
               'notify'  => 'Service[ntp]',
               'require' => 'Package[ntp]',
-            })
+            )
           end
         end
 
@@ -177,12 +177,12 @@ describe 'ntp', :type => :class do
           }}
 
           it do
-            is_expected.to contain_file('ntp.conf').with({
+            is_expected.to contain_file('ntp.conf').with(
               'ensure'  => 'present',
               'content' => /THIS FILE IS MANAGED BY PUPPET/,
               'notify'  => 'Service[ntp]',
               'require' => 'Package[ntp]',
-            })
+            )
           end
         end
 
@@ -195,12 +195,12 @@ describe 'ntp', :type => :class do
           }}
 
           it do
-            is_expected.to contain_file('ntp.conf').with({
+            is_expected.to contain_file('ntp.conf').with(
               'ensure'  => 'present',
               'content' => /THIS FILE IS MANAGED BY PUPPET/,
               'notify'  => 'Service[ntp]',
               'require' => 'Package[ntp]',
-            })
+            )
           end
         end
       end
@@ -208,10 +208,10 @@ describe 'ntp', :type => :class do
       describe 'ntp::service' do
         context 'defaults' do
           it do
-            is_expected.to contain_service('ntp').with({
+            is_expected.to contain_service('ntp').with(
               'ensure' => 'running',
               'enable' => true,
-            })
+            )
           end
         end
 
@@ -221,10 +221,10 @@ describe 'ntp', :type => :class do
           }}
 
           it do
-            is_expected.to contain_service('ntp').with({
+            is_expected.to contain_service('ntp').with(
               'ensure' => 'stopped',
               'enable' => true,
-            })
+            )
           end
         end
       end

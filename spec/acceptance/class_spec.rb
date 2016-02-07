@@ -3,7 +3,6 @@ require 'spec_helper_acceptance'
 case fact('osfamily')
 when 'Debian'
   package_name     = 'ntp'
-  config_dir_path  = '/etc'
   config_file_path = '/etc/ntp.conf'
   service_name     = 'ntp'
 end

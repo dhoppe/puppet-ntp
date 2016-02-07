@@ -18,12 +18,12 @@ describe 'ntp::define', :type => :define do
         }}
 
         it do
-          is_expected.to contain_file('define_ntp.conf').with({
+          is_expected.to contain_file('define_ntp.conf').with(
             'ensure'  => 'present',
             'source'  => 'puppet:///modules/ntp/Debian/etc/ntp.conf',
             'notify'  => 'Service[ntp]',
             'require' => 'Package[ntp]',
-          })
+          )
         end
       end
 
@@ -34,12 +34,12 @@ describe 'ntp::define', :type => :define do
         }}
 
         it do
-          is_expected.to contain_file('define_ntp.conf').with({
+          is_expected.to contain_file('define_ntp.conf').with(
             'ensure'  => 'present',
             'content' => /THIS FILE IS MANAGED BY PUPPET/,
             'notify'  => 'Service[ntp]',
             'require' => 'Package[ntp]',
-          })
+          )
         end
       end
 
@@ -50,12 +50,12 @@ describe 'ntp::define', :type => :define do
         }}
 
         it do
-          is_expected.to contain_file('define_ntp.conf').with({
+          is_expected.to contain_file('define_ntp.conf').with(
             'ensure'  => 'present',
             'content' => /THIS FILE IS MANAGED BY PUPPET/,
             'notify'  => 'Service[ntp]',
             'require' => 'Package[ntp]',
-          })
+          )
         end
       end
 
@@ -69,12 +69,12 @@ describe 'ntp::define', :type => :define do
         }}
 
         it do
-          is_expected.to contain_file('define_ntp.conf').with({
+          is_expected.to contain_file('define_ntp.conf').with(
             'ensure'  => 'present',
             'content' => /THIS FILE IS MANAGED BY PUPPET/,
             'notify'  => 'Service[ntp]',
             'require' => 'Package[ntp]',
-          })
+          )
         end
       end
     end
