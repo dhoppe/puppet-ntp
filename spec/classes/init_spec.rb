@@ -1,24 +1,20 @@
 require 'spec_helper'
 
 describe 'ntp', type: :class do
-  ['Debian'].each do |osfamily|
-    let(:facts) do
-      {
-        osfamily: osfamily,
-        operatingsystem: 'Debian',
-        is_virtual: true
-      }
-    end
+  on_supported_os.each do |os, facts|
+    context "on #{os}" do
+      let(:facts) do
+        facts
+      end
 
-    it { is_expected.to compile.with_all_deps }
-    it { is_expected.to contain_anchor('ntp::begin') }
-    it { is_expected.to contain_class('ntp::params') }
-    it { is_expected.to contain_class('ntp::install') }
-    it { is_expected.to contain_class('ntp::config') }
-    it { is_expected.to contain_class('ntp::service') }
-    it { is_expected.to contain_anchor('ntp::end') }
+      it { is_expected.to compile.with_all_deps }
+      it { is_expected.to contain_anchor('ntp::begin') }
+      it { is_expected.to contain_class('ntp::params') }
+      it { is_expected.to contain_class('ntp::install') }
+      it { is_expected.to contain_class('ntp::config') }
+      it { is_expected.to contain_class('ntp::service') }
+      it { is_expected.to contain_anchor('ntp::end') }
 
-    context "on #{osfamily}" do
       describe 'ntp::install' do
         context 'defaults' do
           it do

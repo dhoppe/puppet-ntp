@@ -1,18 +1,15 @@
 require 'spec_helper'
 
 describe 'ntp::define', type: :define do
-  ['Debian'].each do |osfamily|
-    let(:facts) do
-      {
-        osfamily: osfamily,
-        operatingsystem: 'Debian',
-        is_virtual: true
-      }
-    end
-    let(:pre_condition) { 'include ntp' }
-    let(:title) { 'ntp.conf' }
+  on_supported_os.each do |os, facts|
+    context "on #{os}" do
+      let(:facts) do
+        facts
+      end
 
-    context "on #{osfamily}" do
+      let(:pre_condition) { 'include ntp' }
+      let(:title) { 'ntp.conf' }
+
       context 'when source file' do
         let(:params) do
           {
