@@ -9,15 +9,15 @@
 #### Table of Contents
 
 1. [Overview](#overview)
-2. [Module Description - What the module does and why it is useful](#module-description)
-3. [Setup - The basics of getting started with ntp](#setup)
+1. [Module Description - What the module does and why it is useful](#module-description)
+1. [Setup - The basics of getting started with ntp](#setup)
     * [What ntp affects](#what-ntp-affects)
     * [Setup requirements](#setup-requirements)
     * [Beginning with ntp](#beginning-with-ntp)
-4. [Usage - Configuration options and additional functionality](#usage)
-5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-6. [Limitations - OS compatibility, etc.](#limitations)
-7. [Development - Guide for contributing to the module](#development)
+1. [Usage - Configuration options and additional functionality](#usage)
+1. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
+1. [Limitations - OS compatibility, etc.](#limitations)
+1. [Development - Guide for contributing to the module](#development)
 
 ## Overview
 
@@ -25,7 +25,8 @@ This module installs, configures and manages the NTP service.
 
 ## Module Description
 
-This module handles installing, configuring and running NTP across a range of operating systems and distributions.
+This module handles installing, configuring and running NTP across a range of
+operating systems and distributions.
 
 ## Setup
 
@@ -117,7 +118,8 @@ Deploy the configuration files from source directory.
     }
 ```
 
-Deploy the configuration files from source directory ***(Unmanaged configuration files will be removed)***.
+Deploy the configuration files from source directory ***(Unmanaged configuration
+files will be removed)***.
 
 ```puppet
     class { 'ntp':
@@ -150,7 +152,8 @@ Deploy the configuration file from template.
     }
 ```
 
-Deploy the configuration file from custom template ***(Additional parameters can be defined)***.
+Deploy the configuration file from custom template ***(Additional parameters can
+be defined)***.
 
 ```puppet
     class { 'ntp':
@@ -208,7 +211,8 @@ Disable the ntp service.
 
 #### `package_ensure`
 
-Determines if the package should be installed. Valid values are 'present', 'latest', 'absent' and 'purged'. Defaults to 'present'.
+Determines if the package should be installed. Valid values are 'present',
+'latest', 'absent' and 'purged'. Defaults to 'present'.
 
 #### `package_name`
 
@@ -220,7 +224,8 @@ Determines if additional packages should be managed. Defaults to 'undef'.
 
 #### `config_dir_ensure`
 
-Determines if the configuration directory should be present. Valid values are 'absent' and 'directory'. Defaults to 'directory'.
+Determines if the configuration directory should be present. Valid values are
+'absent' and 'directory'. Defaults to 'directory'.
 
 #### `config_dir_path`
 
@@ -228,11 +233,13 @@ Determines if the configuration directory should be managed. Defaults to '/etc'
 
 #### `config_dir_purge`
 
-Determines if unmanaged configuration files should be removed. Valid values are 'true' and 'false'. Defaults to 'false'.
+Determines if unmanaged configuration files should be removed. Valid values are
+'true' and 'false'. Defaults to 'false'.
 
 #### `config_dir_recurse`
 
-Determines if the configuration directory should be recursively managed. Valid values are 'true' and 'false'. Defaults to 'true'.
+Determines if the configuration directory should be recursively managed. Valid
+values are 'true' and 'false'. Defaults to 'true'.
 
 #### `config_dir_source`
 
@@ -240,7 +247,8 @@ Determines the source of a configuration directory. Defaults to 'undef'.
 
 #### `config_file_ensure`
 
-Determines if the configuration file should be present. Valid values are 'absent' and 'present'. Defaults to 'present'.
+Determines if the configuration file should be present. Valid values are 'absent'
+and 'present'. Defaults to 'present'.
 
 #### `config_file_path`
 
@@ -272,7 +280,8 @@ Determines the content of a configuration file. Defaults to 'undef'.
 
 #### `config_file_notify`
 
-Determines if the service should be restarted after configuration changes. Defaults to 'Service[ntp]'.
+Determines if the service should be restarted after configuration changes.
+Defaults to 'Service[ntp]'.
 
 #### `config_file_require`
 
@@ -280,7 +289,8 @@ Determines which package a configuration file depends on. Defaults to 'Package[n
 
 #### `config_file_hash`
 
-Determines which configuration files should be managed via `ntp::define`. Defaults to '{}'.
+Determines which configuration files should be managed via `ntp::define`.
+Defaults to '{}'.
 
 #### `config_file_options_hash`
 
@@ -288,7 +298,8 @@ Determines which parameters should be passed to an ERB template. Defaults to '{}
 
 #### `service_ensure`
 
-Determines if the service should be running or not. Valid values are 'running' and 'stopped'. Defaults to 'running'.
+Determines if the service should be running or not. Valid values are 'running'
+and 'stopped'. Defaults to 'running'.
 
 #### `service_name`
 
@@ -296,15 +307,21 @@ Determines the name of service to manage. Defaults to 'ntp'.
 
 #### `service_enable`
 
-Determines if the service should be enabled at boot. Valid values are 'true' and 'false'. Defaults to 'true'.
+Determines if the service should be enabled at boot. Valid values are 'true'
+and 'false'. Defaults to 'true'.
 
 #### `server_external`
 
-Determines which hosts should be used as synchronization source (external). Defaults to '["0.${::operatingsystem}.pool.ntp.org", "1.${::operatingsystem}.pool.ntp.org", "2.${::operatingsystem}.pool.ntp.org", "3.${::operatingsystem}.pool.ntp.org"]'.
+Determines which hosts should be used as synchronization source (external).
+Defaults to '["0.${::operatingsystem}.pool.ntp.org",
+"1.${::operatingsystem}.pool.ntp.org", "2.${::operatingsystem}.pool.ntp.org",
+"3.${::operatingsystem}.pool.ntp.org"]'.
 
 #### `server_internal`
 
-Determines which hosts should be used as synchronization source (internal). If more than one internal NTP server is used, they begin to synchronize with each other. Defaults to 'undef'.
+Determines which hosts should be used as synchronization source (internal). If
+more than one internal NTP server is used, they begin to synchronize with each
+other. Defaults to 'undef'.
 
 ## Limitations
 
@@ -317,11 +334,13 @@ This module has been tested on:
 
 ### Bug Report
 
-If you find a bug, have trouble following the documentation or have a question about this module - please create an issue.
+If you find a bug, have trouble following the documentation or have a question
+about this module - please create an issue.
 
 ### Pull Request
 
-If you are able to patch the bug or add the feature yourself - please make a pull request.
+If you are able to patch the bug or add the feature yourself - please make a
+pull request.
 
 ### Contributors
 
