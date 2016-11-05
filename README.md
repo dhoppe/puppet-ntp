@@ -1,10 +1,11 @@
 # ntp
 
 [![Build Status](https://travis-ci.org/dhoppe/puppet-ntp.png?branch=master)](https://travis-ci.org/dhoppe/puppet-ntp)
+[![Code Coverage](https://coveralls.io/repos/github/dhoppe/puppet-ntp/badge.svg?branch=master)](https://coveralls.io/github/dhoppe/puppet-ntp)
 [![Puppet Forge](https://img.shields.io/puppetforge/v/dhoppe/ntp.svg)](https://forge.puppetlabs.com/dhoppe/ntp)
-[![Puppet Forge](https://img.shields.io/puppetforge/dt/dhoppe/ntp.svg)](https://forge.puppetlabs.com/dhoppe/ntp)
-[![Puppet Forge](https://img.shields.io/puppetforge/mc/dhoppe.svg)](https://forge.puppetlabs.com/dhoppe)
-[![Puppet Forge](https://img.shields.io/puppetforge/rc/dhoppe.svg)](https://forge.puppetlabs.com/dhoppe)
+[![Puppet Forge - downloads](https://img.shields.io/puppetforge/dt/dhoppe/ntp.svg)](https://forge.puppetlabs.com/dhoppe/ntp)
+[![Puppet Forge - endorsement](https://img.shields.io/puppetforge/e/dhoppe/ntp.svg)](https://forge.puppetlabs.com/dhoppe/ntp)
+[![Puppet Forge - scores](https://img.shields.io/puppetforge/f/dhoppe/ntp.svg)](https://forge.puppetlabs.com/dhoppe/ntp)
 
 #### Table of Contents
 
